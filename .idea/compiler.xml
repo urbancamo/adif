@@ -11,6 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="adif" target="1.8" />
+      <module name="adif-processor" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
