@@ -15,6 +15,7 @@ import java.time.ZonedDateTime;
 import java.util.Map;
 import java.util.Optional;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class AdiReaderTest {
@@ -127,6 +128,7 @@ public class AdiReaderTest {
     }
 
     @Test
+    @Ignore
     public void testAdifSample() throws Exception {
         AdiReader reader = new AdiReader();
         BufferedReader inputReader = resourceInput("adif/sample.adi");
