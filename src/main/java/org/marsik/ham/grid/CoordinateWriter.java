@@ -30,7 +30,7 @@ public class CoordinateWriter {
         int deg = (int) lat;
         double min = 60.0 * (lat - (int)lat);
 
-        return String.format("%s%02d %02.3f", prefix, deg, min);
+        return String.format("%s%03d %02.3f", prefix, deg, min);
     }
 
     public static double dmToLat(String string) {

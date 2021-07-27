@@ -9,7 +9,7 @@ public class CoordinateWriterTest {
     public void testNorthLatitude() throws Exception {
         assertThat(CoordinateWriter.latToDM(50.5))
                 .isNotNull()
-                .isEqualTo("N50 30.000");
+                .isEqualTo("N050 30.000");
     }
 
     @Test
@@ -21,7 +21,7 @@ public class CoordinateWriterTest {
 
     @Test
     public void testParsingNorthLatitude() throws Exception {
-        assertThat(CoordinateWriter.dmToLat("N50 30.000"))
+        assertThat(CoordinateWriter.dmToLat("N050 30.000"))
                 .isEqualTo(50.5);
     }
 
