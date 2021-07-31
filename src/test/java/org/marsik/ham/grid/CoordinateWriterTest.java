@@ -20,6 +20,20 @@ public class CoordinateWriterTest {
     }
 
     @Test
+    public void testLatitudePadding() throws Exception {
+        assertThat(CoordinateWriter.latToDM(50.07))
+                .isNotNull()
+                .isEqualTo("N050 04.200");
+    }
+
+    @Test
+    public void testLongitudePadding() throws Exception {
+        assertThat(CoordinateWriter.lonToDM(15.01))
+                .isNotNull()
+                .isEqualTo("E015 01.000");
+    }
+
+    @Test
     public void testParsingNorthLatitude() throws Exception {
         assertThat(CoordinateWriter.dmToLat("N050 30.000"))
                 .isEqualTo(50.5);

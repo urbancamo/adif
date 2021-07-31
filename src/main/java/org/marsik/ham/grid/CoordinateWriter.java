@@ -17,20 +17,23 @@ public class CoordinateWriter {
 
     public static String lonToDM(double lon) {
         String prefix = getLongitudePrefix(lon);
-        lon = Math.abs(lon);
-        int deg = (int) lon;
-        double min = 60.0 * (lon - (int)lon);
-
-        return String.format("%s%03d %02.3f", prefix, deg, min);
+        return coordToDM(prefix, lon);
     }
 
     public static String latToDM(double lat) {
         String prefix = getLatitudePrefix(lat);
-        lat = Math.abs(lat);
-        int deg = (int) lat;
-        double min = 60.0 * (lat - (int)lat);
+        return coordToDM(prefix, lat);
+    }
 
-        return String.format("%s%03d %02.3f", prefix, deg, min);
+    private static String coordToDM(String prefix, double coord) {
+        double absCoord = Math.abs(coord);
+        int deg = (int) Math.floor(absCoord);
+
+        double min = 60.0 * (absCoord - deg);
+        int wholeMin = (int)Math.floor(min);
+        int remainder = (int)((min - wholeMin) * 1000);
+
+        return String.format("%s%03d %02d.%03d", prefix, deg, wholeMin, remainder);
     }
 
     public static double dmToLat(String string) {
