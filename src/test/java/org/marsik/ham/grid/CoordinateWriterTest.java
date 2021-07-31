@@ -16,7 +16,7 @@ public class CoordinateWriterTest {
     public void testEastLongitude() throws Exception {
         assertThat(CoordinateWriter.lonToDM(15.2))
                 .isNotNull()
-                .isEqualTo("E015 12.000");
+                .isEqualTo("E015 11.999");
     }
 
     @Test
@@ -30,9 +30,15 @@ public class CoordinateWriterTest {
     public void testLongitudePadding() throws Exception {
         assertThat(CoordinateWriter.lonToDM(15.01))
                 .isNotNull()
-                .isEqualTo("E015 01.000");
+                .isEqualTo("E015 00.599");
     }
 
+    @Test
+    public void testLongitudePadding2() throws Exception {
+        assertThat(CoordinateWriter.lonToDM(15.98765432))
+                .isNotNull()
+                .isEqualTo("E015 59.259");
+    }
     @Test
     public void testParsingNorthLatitude() throws Exception {
         assertThat(CoordinateWriter.dmToLat("N050 30.000"))

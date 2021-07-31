@@ -28,8 +28,7 @@ public class CoordinateWriter {
     private static String coordToDM(String prefix, double coord) {
         double absCoord = Math.abs(coord);
         int deg = (int) Math.floor(absCoord);
-
-        double min = 60.0 * (absCoord - deg);
+        double min = (absCoord - Math.floor(absCoord)) * 60.0;
         int wholeMin = (int)Math.floor(min);
         int remainder = (int)((min - wholeMin) * 1000);
 
