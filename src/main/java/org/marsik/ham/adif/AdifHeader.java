@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AdifHeader {
+    String preamble = "";
     String version = "3.0.5";
     String programId;
     String programVersion;

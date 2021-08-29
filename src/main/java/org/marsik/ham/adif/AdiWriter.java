@@ -19,6 +19,10 @@ public class AdiWriter {
 
     private StringBuilder builder = new StringBuilder();
 
+    public void append(String value) {
+        builder.append(value);
+    }
+
     public void append(String name, Boolean value) {
         if (value == null) return;
         appendFieldHeader(name, 1);
@@ -324,6 +328,7 @@ public class AdiWriter {
     }
 
     public void append(AdifHeader header, boolean useOrigProgramId) {
+        append(header.getPreamble());
         append("adif_ver", header.getVersion());
         append("programid", useOrigProgramId ? header.getProgramId() : getClass().getCanonicalName());
         appendEndOfHeader();
